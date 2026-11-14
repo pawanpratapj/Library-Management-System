@@ -84,7 +84,7 @@ DATABASES = {
         'NAME': os.getenv('DB_NAME') or '',
         'USER': os.getenv('DB_USERNAME') or '',
         'PASSWORD': os.getenv('DB_PASSWORD') or '',
-        'HOST': os.getenv('DB_HOST') or '127.0.0.1',  # Forces TCP instead of local socket
+        'HOST': os.getenv('DB_HOST'),  # Do NOT fallback to 127.0.0.1 here; it must come from Wasmer
         'PORT': os.getenv('DB_PORT') or '3306',
         'OPTIONS': {
             'charset': 'utf8mb4',
