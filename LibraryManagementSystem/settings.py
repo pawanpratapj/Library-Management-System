@@ -81,11 +81,11 @@ WSGI_APPLICATION = 'LibraryManagementSystem.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': os.getenv('DB_NAME'),
-        'USER': os.getenv('DB_USERNAME'),  # Must be DB_USERNAME (Wasmer's injected name)
-        'PASSWORD': os.getenv('DB_PASSWORD'),
-        'HOST': os.getenv('DB_HOST'),
-        'PORT': os.getenv('DB_PORT'),      # Required: Wasmer DBs use a custom port
+        'NAME': os.getenv('DB_NAME') or '',
+        'USER': os.getenv('DB_USERNAME') or '',
+        'PASSWORD': os.getenv('DB_PASSWORD') or '',
+        'HOST': os.getenv('DB_HOST') or '',
+        'PORT': os.getenv('DB_PORT') or '',
         'OPTIONS': {
             'charset': 'utf8mb4',
         },
