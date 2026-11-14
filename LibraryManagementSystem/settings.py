@@ -84,14 +84,13 @@ DATABASES = {
         'NAME': os.getenv('DB_NAME') or '',
         'USER': os.getenv('DB_USERNAME') or '',
         'PASSWORD': os.getenv('DB_PASSWORD') or '',
-        'HOST': os.getenv('DB_HOST') or '',
-        'PORT': os.getenv('DB_PORT') or '',
+        'HOST': os.getenv('DB_HOST') or '127.0.0.1',  # Forces TCP instead of local socket
+        'PORT': os.getenv('DB_PORT') or '3306',
         'OPTIONS': {
             'charset': 'utf8mb4',
         },
     }
 }
-
 # Our existing MySQL tables use INT primary keys.
 # Keep the same default for new Django models.
 DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
