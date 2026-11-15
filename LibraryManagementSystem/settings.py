@@ -81,14 +81,40 @@ WSGI_APPLICATION = 'LibraryManagementSystem.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': os.getenv('MYSQLDATABASE') or os.getenv('MYSQL_DATABASE') or 'railway',
-        'USER': os.getenv('MYSQLUSER') or 'root',
-        'PASSWORD': os.getenv('MYSQLPASSWORD') or '',
-        'HOST': os.getenv('MYSQLHOST') or '127.0.0.1',
-        'PORT': os.getenv('MYSQLPORT') or '3306',
+
+        'NAME': (
+            os.getenv('MYSQLDATABASE')
+            or os.getenv('MYSQL_DATABASE')
+            or 'library_db'
+        ),
+
+        'USER': (
+            os.getenv('MYSQLUSER')
+            or os.getenv('MYSQL_USER')
+            or 'root'
+        ),
+
+        'PASSWORD': (
+            os.getenv('MYSQLPASSWORD')
+            or os.getenv('MYSQL_PASSWORD')
+            or ''
+        ),
+
+        'HOST': (
+            os.getenv('MYSQLHOST')
+            or os.getenv('MYSQL_HOST')
+            or '127.0.0.1'
+        ),
+
+        'PORT': (
+            os.getenv('MYSQLPORT')
+            or os.getenv('MYSQL_PORT')
+            or '3306'
+        ),
+
         'OPTIONS': {
             'charset': 'utf8mb4',
-        }
+        },
     }
 }
 # Our existing MySQL tables use INT primary keys.
