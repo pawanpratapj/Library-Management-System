@@ -80,12 +80,12 @@ WSGI_APPLICATION = 'LibraryManagementSystem.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql', # or your specific database backend
-        'NAME': os.getenv('DB_NAME') or '',
-        'USER': os.getenv('DB_USERNAME') or '',
-        'PASSWORD': os.getenv('DB_PASSWORD') or '',
-        'HOST': os.getenv('DB_HOST') or '127.0.0.1',  # Safe fallback for local development
-        'PORT': os.getenv('DB_PORT') or '3306',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': os.getenv('MYSQLDATABASE') or os.getenv('MYSQL_DATABASE') or 'railway',
+        'USER': os.getenv('MYSQLUSER') or 'root',
+        'PASSWORD': os.getenv('MYSQLPASSWORD') or '',
+        'HOST': os.getenv('MYSQLHOST') or '127.0.0.1',
+        'PORT': os.getenv('MYSQLPORT') or '3306',
         'OPTIONS': {
             'charset': 'utf8mb4',
         }
